@@ -1,0 +1,12 @@
+import cv2
+img1 = cv2.imread('1.png', cv2.IMREAD_COLOR)
+img1 = cv2.resize(img1, (640, 480))
+img2 = cv2.imread('1.png', cv2.IMREAD_GRAYSCALE)
+img2 = cv2.resize(img2, (640, 480))
+cv2.imshow('image_RGB', img1)
+cv2.imshow('image_Gray', img2)
+# ret, thresh = cv2.threshold(img2, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+ret, thresh = cv2.threshold(img2, 200, 255, cv2.THRESH_BINARY)
+thresh = cv2.resize(thresh, (640, 480))
+cv2.imshow('image_B&W', thresh)
+cv2.waitKey(0)
